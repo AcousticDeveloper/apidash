@@ -576,7 +576,7 @@ class Program
       );
     });
     test("Post 2", () {
-      const expectedCode = """
+      const expectedCode = r"""
 using System;
 using RestSharp;
 using System.Threading.Tasks;
@@ -592,15 +592,8 @@ class Program
 
       request.AddHeader("Content-Type", "application/json");
 
-      var jsonBody = new {
-text = "I LOVE Flutter",
-flag = "null",
-male = "true",
-female = "false",
-no = "1.2",
-arr = "[null, true, false, null]"
-};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = "{\n\"text\": \"I LOVE Flutter\",\n\"flag\": null,\n\"male\": true,\n\"female\": false,\n\"no\": 1.2,\n\"arr\": [\"null\", \"true\", \"false\", null]\n}";
+      request.AddStringBody(jsonBody, ContentType.Json);
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);
@@ -622,7 +615,7 @@ arr = "[null, true, false, null]"
       );
     });
     test("Post 3", () {
-      const expectedCode = """
+      const expectedCode = r"""
 using System;
 using RestSharp;
 using System.Threading.Tasks;
@@ -639,10 +632,8 @@ class Program
       request.AddHeader("User-Agent", "Test Agent");
       request.AddHeader("Content-Type", "application/json");
 
-      var jsonBody = new {
-text = "I LOVE Flutter"
-};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = "{\n\"text\": \"I LOVE Flutter\"\n}";
+      request.AddStringBody(jsonBody, ContentType.Json);
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);
@@ -921,7 +912,7 @@ class Program
 
   group("Put Request Test", () {
     test("Put 1", () {
-      const expectedCode = """
+      const expectedCode = r"""
 using System;
 using RestSharp;
 using System.Threading.Tasks;
@@ -937,11 +928,8 @@ class Program
 
       request.AddHeader("Content-Type", "application/json");
 
-      var jsonBody = new {
-name = "morpheus",
-job = "zion resident"
-};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = "{\n\"name\": \"morpheus\",\n\"job\": \"zion resident\"\n}";
+      request.AddStringBody(jsonBody, ContentType.Json);
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);
@@ -966,7 +954,7 @@ job = "zion resident"
 
   group("Patch Request Test", () {
     test("Patch 1", () {
-      const expectedCode = """
+      const expectedCode = r"""
 using System;
 using RestSharp;
 using System.Threading.Tasks;
@@ -982,11 +970,8 @@ class Program
 
       request.AddHeader("Content-Type", "application/json");
 
-      var jsonBody = new {
-name = "marfeus",
-job = "accountant"
-};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = "{\n\"name\": \"marfeus\",\n\"job\": \"accountant\"\n}";
+      request.AddStringBody(jsonBody, ContentType.Json);
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);
@@ -1045,7 +1030,7 @@ class Program
       );
     });
     test("Delete 2", () {
-      const expectedCode = """
+      const expectedCode = r"""
 using System;
 using RestSharp;
 using System.Threading.Tasks;
@@ -1061,11 +1046,8 @@ class Program
 
       request.AddHeader("Content-Type", "application/json");
 
-      var jsonBody = new {
-name = "marfeus",
-job = "accountant"
-};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = "{\n\"name\": \"marfeus\",\n\"job\": \"accountant\"\n}";
+      request.AddStringBody(jsonBody, ContentType.Json);
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);
