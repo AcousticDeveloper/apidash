@@ -74,12 +74,12 @@ void main() async {
       const expectedCode = r"""import 'package:http/http.dart' as http;
 
 void main() async {
-  var uri = Uri.parse('https://api.apidash.dev/country/data');
+  var uri = Uri.parse('https://api.apidash.dev/country/filtercodes');
 
   var queryParams = {
-    'code': [
-      'IND',
-      'US',
+    'country': [
+      'United States',
+      'India',
     ]
   };
   var urlQueryParams = Map<String, dynamic>.from(uri.queryParameters);

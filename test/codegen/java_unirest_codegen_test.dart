@@ -60,10 +60,10 @@ public class Main {
 
 public class Main {
     public static void main(String[] args) {
-        final String requestURL = "https://api.apidash.dev/country/data";
+        final String requestURL = "https://api.apidash.dev/country/filtercodes";
         HttpResponse<JsonNode> response = Unirest.get(requestURL)
-              .queryString("code", "IND")
-              .queryString("code", "US")
+              .queryString("country", "United States")
+              .queryString("country", "India")
                       .asJson();
         System.out.println(response.getStatus());
         System.out.println(response.getBody());

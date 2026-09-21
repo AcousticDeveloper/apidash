@@ -76,12 +76,12 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
 
-string baseUri = "https://api.apidash.dev/country/data";
+string baseUri = "https://api.apidash.dev/country/filtercodes";
 
 var query = new Dictionary<string, List<string>>();
-    query["code"] = new List<string>();
-      query["code"].Add("IND");
-      query["code"].Add("US");
+    query["country"] = new List<string>();
+      query["country"].Add("United States");
+      query["country"].Add("India");
 
 var queryString = string.Join("&", query.SelectMany(kv => kv.Value.Select(v => string.Format("{0}={1}", kv.Key, v))));
 string uri = string.Format("{0}?{1}", baseUri, queryString);

@@ -5,12 +5,10 @@ part 'mqtt_request_model.freezed.dart';
 part 'mqtt_request_model.g.dart';
 
 @freezed
-abstract class MQTTRequestModel
-    with _$MQTTRequestModel {
-  @JsonSerializable(
-    explicitToJson: true,
-    anyMap: true,
-  )
+abstract class MQTTRequestModel with _$MQTTRequestModel {
+  const MQTTRequestModel._();
+
+  @JsonSerializable(explicitToJson: true, anyMap: true)
   const factory MQTTRequestModel({
     required String brokerUrl,
     @Default(1883) int port,
@@ -64,7 +62,43 @@ abstract class MQTTRequestModel
 
   factory MQTTRequestModel.fromJson(Map<String, dynamic> json) =>
       _$MQTTRequestModelFromJson(json);
+
+  List<NameValueModel> getConnectionData() {
+    List<NameValueModel> connectionData = [
+      NameValueModel(name: 'Broker URL', value: brokerUrl),
+      NameValueModel(name: 'Port', value: port),
+      NameValueModel(name: 'Version', value: version.label),
+      NameValueModel(name: 'Client ID', value: clientId),
+
+      NameValueModel(name: 'Username', value: username),
+      NameValueModel(name: 'QoS', value: qos),
+      NameValueModel(name: 'Keep Alive (s)', value: keepAlivePeriod),
+      NameValueModel(
+        name: 'Clean Session',
+        value: sessionExpiryInterval == 0 ? 'true' : 'false',
+      ),
+      NameValueModel(
+        name: 'Session Expiry (s)',
+        value: '$sessionExpiryInterval',
+      ),
+      NameValueModel(name: 'TLS', value: useTLS ? 'Enabled' : 'Disabled'),
+      NameValueModel(
+        name: 'WebSocket',
+        value: useWebSocket ? 'Enabled' : 'Disabled',
+      ),
+      NameValueModel(name: 'Retain', value: retainMessage ? 'true' : 'false'),
+      NameValueModel(name: 'Will Topic', value: willTopic),
+    ];
+    return connectionData;
+  }
 }
 
 /// Enum for MQTT version support.
-enum MQTTVersion { v3, v3_1_1, v5 }
+enum MQTTVersion {
+  v3('MQTT 3.0'),
+  v3_1_1('MQTT 3.1.1'),
+  v5('MQTT 5.0');
+
+  const MQTTVersion(this.label);
+  final String label;
+}

@@ -25,10 +25,7 @@ abstract class GrpcParameterModel with _$GrpcParameterModel {
 abstract class GrpcRequestModel with _$GrpcRequestModel {
   const GrpcRequestModel._();
 
-  @JsonSerializable(
-    explicitToJson: true,
-    anyMap: true,
-  )
+  @JsonSerializable(explicitToJson: true, anyMap: true)
   const factory GrpcRequestModel({
     @Default("") String url,
     String? service,
@@ -52,8 +49,18 @@ abstract class GrpcRequestModel with _$GrpcRequestModel {
     if (metadata == null) return {};
     return {
       for (var m in (metadata!))
-        if (m.name.isNotEmpty) m.name: m.value
+        if (m.name.isNotEmpty) m.name: m.value,
     };
+  }
+
+  List<NameValueModel> get nvParameters {
+    List<NameValueModel> nvP = [];
+    for (var p in parameters) {
+      if (p.name.isNotEmpty) {
+        nvP.add(NameValueModel(name: p.name, value: p.value));
+      }
+    }
+    return nvP;
   }
 
   factory GrpcRequestModel.fromJson(Map<String, dynamic> json) =>

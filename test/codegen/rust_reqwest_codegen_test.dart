@@ -67,10 +67,10 @@ void main() {
       const expectedCode =
           r"""fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = reqwest::blocking::Client::new();
-    let url = "https://api.apidash.dev/country/data";
+    let url = "https://api.apidash.dev/country/filtercodes";
     let query_params = [
-        ("code", "IND"),
-        ("code", "US"),
+        ("country", "United States"),
+        ("country", "India"),
     ];
     let response = client
         .get(url)

@@ -149,7 +149,7 @@ int main() {
   CURLcode res;
   curl = curl_easy_init();
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "https://api.apidash.dev/country/data?code=US&code=IND");
+    curl_easy_setopt(curl, CURLOPT_URL, "https://api.apidash.dev/country/filtercodes?country=India&country=United+States");
     struct ResponseData response_data = {0};
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response_data);

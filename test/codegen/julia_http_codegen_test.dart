@@ -53,10 +53,10 @@ println("Response Body: \n$(String(response.body))")
     test('GET 3', () {
       const expectedCode = r"""using HTTP
 
-url = "https://api.apidash.dev/country/data"
+url = "https://api.apidash.dev/country/filtercodes"
 
 params = Dict(
-    "code" =>["IND","US"],
+    "country" =>["United States","India"],
 )
 
 response = HTTP.request("GET", url, query=params, status_exception=false)

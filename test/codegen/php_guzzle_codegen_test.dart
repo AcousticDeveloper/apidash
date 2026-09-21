@@ -79,7 +79,7 @@ use GuzzleHttp\Psr7\Request;
 
 
 $queryParams = [
-'code' => ['IND', 'US']
+'country' => ['United States', 'India']
 ];
 $queryParts = [];
 foreach ($queryParams as $key => $values) {
@@ -90,7 +90,7 @@ foreach ($queryParams as $key => $values) {
 $queryParamsStr = '?' . implode('&', $queryParts);
 $client = new Client();
 
-$request = new Request('get', 'https://api.apidash.dev/country/data'. $queryParamsStr);
+$request = new Request('get', 'https://api.apidash.dev/country/filtercodes'. $queryParamsStr);
 $res = $client->sendAsync($request)->wait();
 
 echo $res->getStatusCode() . "\n";

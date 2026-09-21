@@ -51,8 +51,8 @@ print('Response Body:', response.text)
     test('GET 3', () {
       const expectedCode = r"""import requests
 
-url = 'https://api.apidash.dev/country/data'
-params = { 'code': ['IND', 'US'] }
+url = 'https://api.apidash.dev/country/filtercodes'
+params = { 'country': ['United States', 'India'] }
 response = requests.get(url, params=params)
 
 print('Status Code:', response.status_code)

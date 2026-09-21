@@ -68,12 +68,12 @@ axios(config)
 
     test('GET 3', () {
       const expectedCode = r"""const config = {
-  url: 'https://api.apidash.dev/country/data',
+  url: 'https://api.apidash.dev/country/filtercodes',
   method: 'get',
   params: {
-    "code": [
-      "IND",
-      "US"
+    "country": [
+      "United States",
+      "India"
     ]
   },
   paramsSerializer: (params) => {

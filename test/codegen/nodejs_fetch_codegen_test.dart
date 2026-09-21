@@ -72,9 +72,9 @@ fetch(url, options)
     test('GET 3', () {
       const expectedCode = r"""import fetch from 'node-fetch'
 
-const url = new URL('https://api.apidash.dev/country/data'); 
-url.searchParams.append('code', 'IND');
-url.searchParams.append('code', 'US');
+const url = new URL('https://api.apidash.dev/country/filtercodes'); 
+url.searchParams.append('country', 'United States');
+url.searchParams.append('country', 'India');
 const options = {
   method: 'GET'
 };

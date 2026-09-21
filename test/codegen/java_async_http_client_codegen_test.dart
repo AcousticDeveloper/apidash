@@ -96,11 +96,11 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         try (AsyncHttpClient asyncHttpClient = Dsl.asyncHttpClient()) {
-            String url = "https://api.apidash.dev/country/data";
+            String url = "https://api.apidash.dev/country/filtercodes";
             BoundRequestBuilder requestBuilder = asyncHttpClient.prepare("GET", url);
            
-            requestBuilder.addQueryParam("code", "IND"); 
-            requestBuilder.addQueryParam("code", "US"); 
+            requestBuilder.addQueryParam("country", "United States"); 
+            requestBuilder.addQueryParam("country", "India"); 
             Future<Response> whenResponse = requestBuilder.execute();
             Response response = whenResponse.get();
             InputStream is = response.getResponseBodyAsStream();

@@ -92,10 +92,10 @@ class Program
       const String _baseUrl = "https://api.apidash.dev";
       var client = new RestClient(_baseUrl);
 
-      var request = new RestRequest("/country/data", Method.Get);
+      var request = new RestRequest("/country/filtercodes", Method.Get);
 
-      request.AddQueryParameter("code", "IND");
-      request.AddQueryParameter("code", "US");
+      request.AddQueryParameter("country", "United States");
+      request.AddQueryParameter("country", "India");
 
       var response = await client.ExecuteAsync(request);
       Console.WriteLine("Status Code: " + (int)response.StatusCode);

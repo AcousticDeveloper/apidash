@@ -81,10 +81,10 @@ dispatchMain()""";
       const expectedCode = r"""
 import Foundation
 import Alamofire
-var urlComponents = URLComponents(string: "https://api.apidash.dev/country/data")!
+var urlComponents = URLComponents(string: "https://api.apidash.dev/country/filtercodes")!
 var queryItems = [URLQueryItem]()
-queryItems.append(URLQueryItem(name: "code", value: "IND"))
-queryItems.append(URLQueryItem(name: "code", value: "US"))
+queryItems.append(URLQueryItem(name: "country", value: "United States"))
+queryItems.append(URLQueryItem(name: "country", value: "India"))
 
 urlComponents.queryItems = queryItems
 let url = urlComponents.url!

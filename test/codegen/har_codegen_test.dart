@@ -52,16 +52,16 @@ void main() {
     test('GET 3', () {
       const expectedCode = r"""{
   "method": "GET",
-  "url": "https://api.apidash.dev/country/data?code=US&code=IND",
+  "url": "https://api.apidash.dev/country/filtercodes?country=India&country=United+States",
   "httpVersion": "HTTP/1.1",
   "queryString": [
     {
-      "name": "code",
-      "value": "US"
+      "name": "country",
+      "value": "India"
     },
     {
-      "name": "code",
-      "value": "IND"
+      "name": "country",
+      "value": "United States"
     }
   ],
   "headers": []

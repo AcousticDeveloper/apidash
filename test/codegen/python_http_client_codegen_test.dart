@@ -56,11 +56,11 @@ print(data.decode("utf-8"))
     test('GET 3', () {
       const expectedCode = r"""import http.client
 from urllib.parse import urlencode
-params = { 'code': ['IND', 'US'] }
+params = { 'country': ['United States', 'India'] }
 queryParamsStr = '?' + urlencode(params,doseq=True)
 
 conn = http.client.HTTPSConnection("api.apidash.dev")
-conn.request("GET", "/country/data" + queryParamsStr)
+conn.request("GET", "/country/filtercodes" + queryParamsStr)
 
 res = conn.getresponse()
 data = res.read()

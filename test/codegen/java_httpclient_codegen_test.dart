@@ -85,7 +85,7 @@ public class Main {
   public static void main(String[] args) {
     try {
       HttpClient client = HttpClient.newHttpClient();
-      URI uri = URI.create("https://api.apidash.dev/country/data?code=US&code=IND");
+      URI uri = URI.create("https://api.apidash.dev/country/filtercodes?country=India&country=United+States");
 
       HttpRequest.Builder requestBuilder = HttpRequest.newBuilder(uri).GET();
       HttpResponse<String> response = client.send(requestBuilder.build(), HttpResponse.BodyHandlers.ofString());

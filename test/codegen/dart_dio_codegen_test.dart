@@ -76,13 +76,13 @@ void main() async {
 void main() async {
   try {
     final queryParams = {
-      'code': [
-        'IND',
-        'US',
+      'country': [
+        'United States',
+        'India',
       ]
     };
     final response = await dio.Dio().get(
-      'https://api.apidash.dev/country/data',
+      'https://api.apidash.dev/country/filtercodes',
       queryParameters: queryParams,
     );
     print(response.statusCode);

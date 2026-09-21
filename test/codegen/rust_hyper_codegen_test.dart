@@ -92,10 +92,10 @@ use url::Url;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let https = HttpsConnector::new();
     let client = Client::builder().build::<_, hyper::Body>(https);
-    let mut url = Url::parse("https://api.apidash.dev/country/data")?;
+    let mut url = Url::parse("https://api.apidash.dev/country/filtercodes")?;
         
-    url.query_pairs_mut().append_pair("code", "IND");
-    url.query_pairs_mut().append_pair("code", "US");
+    url.query_pairs_mut().append_pair("country", "United States");
+    url.query_pairs_mut().append_pair("country", "India");
         let req_builder = Request::builder()
         .method("GET").uri(url.as_str())
         .body(Body::empty())?;
@@ -679,7 +679,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST4', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
@@ -723,7 +724,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST5', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
@@ -768,7 +770,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST6', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
@@ -811,7 +814,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST7', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
@@ -854,7 +858,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST8', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
@@ -901,7 +906,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       );
     });
     test('POST9', () {
-      const expectedCode = r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
+      const expectedCode =
+          r"""extern crate hyper_multipart_rfc7578 as hyper_multipart;
 use hyper::{Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use hyper_multipart::client::multipart;
