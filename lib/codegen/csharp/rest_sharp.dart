@@ -61,8 +61,8 @@ class Program
 """;
 
   String kTemplateJsonData = """
-      var jsonBody = new {{jsonData}};
-      request.AddJsonBody(jsonBody);
+      var jsonBody = {{jsonData}};
+      request.AddStringBody(jsonBody, ContentType.Json);
 
 
 """;
@@ -165,15 +165,8 @@ class Program
 
         if (requestModel.hasJsonData) {
           var templateJsonData = jj.Template(kTemplateJsonData);
-          Map<String, dynamic> bodyData = json.decode(requestModel.body!);
-          List<String> jsonArr = [];
-
-          bodyData.forEach((key, value) {
-            jsonArr += ["$key = \"$value\""];
-          });
-          String jsonDataResult = "{\n${jsonArr.join(",\n")}\n}";
-
-          result += templateJsonData.render({"jsonData": jsonDataResult});
+          result += templateJsonData
+              .render({"jsonData": jsonEncode(requestModel.body)});
         }
 
         if (requestModel.hasTextData) {
