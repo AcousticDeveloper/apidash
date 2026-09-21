@@ -74,12 +74,12 @@ axios(config)
       const expectedCode = r"""import axios from 'axios';
 import qs from 'qs';
 const config = {
-  url: 'https://api.apidash.dev/country/data',
+  url: 'https://api.apidash.dev/country/filtercodes',
   method: 'get',
   params: {
-    "code": [
-      "IND",
-      "US"
+    "country": [
+      "United States",
+      "India"
     ]
   },
   paramsSerializer: (params) => {

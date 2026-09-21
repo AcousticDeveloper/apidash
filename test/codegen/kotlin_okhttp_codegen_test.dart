@@ -79,9 +79,9 @@ import okhttp3.HttpUrl.Companion.toHttpUrl
 fun main() {
     val client = OkHttpClient()
 
-    val url = "https://api.apidash.dev/country/data".toHttpUrl().newBuilder()
-            .addQueryParameter("code", "IND")
-            .addQueryParameter("code", "US")
+    val url = "https://api.apidash.dev/country/filtercodes".toHttpUrl().newBuilder()
+            .addQueryParameter("country", "United States")
+            .addQueryParameter("country", "India")
             .build()
 
     val request = Request.Builder()

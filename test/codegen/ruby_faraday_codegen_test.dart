@@ -67,7 +67,7 @@ puts "Response Body: #{response.body}"
       const expectedCode = r"""require 'uri'
 require 'faraday'
 
-REQUEST_URL = URI("https://api.apidash.dev/country/data")
+REQUEST_URL = URI("https://api.apidash.dev/country/filtercodes")
 
 conn = Faraday.new do |faraday|
   faraday.adapter Faraday.default_adapter
@@ -75,7 +75,7 @@ end
 
 response = conn.get(REQUEST_URL) do |req|
   req.params = {
-    "code" => ["IND", "US"],
+    "country" => ["United States", "India"],
     }
 end
 

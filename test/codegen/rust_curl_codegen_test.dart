@@ -90,10 +90,10 @@ fn main() {
 fn main() {
   let mut easy = Easy::new();
   let mut data = Vec::new();
-   let base_url = "https://api.apidash.dev/country/data"; 
+   let base_url = "https://api.apidash.dev/country/filtercodes"; 
   
   let params: Vec<(&str, Vec<&str>)> = vec![
-    ("code", vec!["IND", "US", ]),
+    ("country", vec!["United States", "India", ]),
   ];
   let query_string: String = params.iter().flat_map(|(key, values)| values.iter().map(move |val| format!("{}={}", key, val)))      .collect::<Vec<_>>().join("&");
   let url = format!("{}?{}", base_url, query_string);

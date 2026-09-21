@@ -75,9 +75,9 @@ require_once 'vendor/autoload.php';
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 
-$uri = "https://api.apidash.dev/country/data";
+$uri = "https://api.apidash.dev/country/filtercodes";
   $queryParams = [
-  'code' => ['IND', 'US']
+  'country' => ['United States', 'India']
   ];
   $queryString = http_build_query($queryParams, '', '&', PHP_QUERY_RFC3986);
   $queryString = preg_replace('/%5B[0-9]+%5D/', '', $queryString);

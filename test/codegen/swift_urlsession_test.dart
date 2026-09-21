@@ -108,12 +108,12 @@ semaphore.wait()
       const expectedCode = r"""
 import Foundation
 
-var urlComponents = URLComponents(string: "https://api.apidash.dev/country/data")!
+var urlComponents = URLComponents(string: "https://api.apidash.dev/country/filtercodes")!
 var queryItems = [URLQueryItem]()
 
 
-queryItems.append(URLQueryItem(name: "code", value: "IND"))
-queryItems.append(URLQueryItem(name: "code", value: "US"))
+queryItems.append(URLQueryItem(name: "country", value: "United States"))
+queryItems.append(URLQueryItem(name: "country", value: "India"))
 
 urlComponents.queryItems = queryItems
 let requestUrl = urlComponents.url!
@@ -1338,16 +1338,17 @@ task.resume()
 semaphore.wait()
 """;
 
-        expect(
-            codeGen.getCode(
-              CodegenLanguage.swiftUrlSession,
-              requestModelPost9,
-              SupportedUriSchemes.https,
-            ),
-            expectedCode);
-      });
-      test('POST 10', () {
-        const expectedCode = r'''import Foundation
+      expect(
+        codeGen.getCode(
+          CodegenLanguage.swiftUrlSession,
+          requestModelPost9,
+          SupportedUriSchemes.https,
+        ),
+        expectedCode,
+      );
+    });
+    test('POST 10', () {
+      const expectedCode = r'''import Foundation
 
 let postData = """
 {
@@ -1405,11 +1406,9 @@ semaphore.wait()
     });
   });
 
-  group(
-    'HTTPVerb.put',
-    () {
-      test('PUT 1', () {
-        const expectedCode = r'''import Foundation
+  group('HTTPVerb.put', () {
+    test('PUT 1', () {
+      const expectedCode = r'''import Foundation
 
 let postData = """
 {
@@ -1468,11 +1467,9 @@ semaphore.wait()
     });
   });
 
-  group(
-    'HTTPVerb.patch',
-    () {
-      test('PATCH 1', () {
-        const expectedCode = r'''import Foundation
+  group('HTTPVerb.patch', () {
+    test('PATCH 1', () {
+      const expectedCode = r'''import Foundation
 
 let postData = """
 {
@@ -1531,11 +1528,9 @@ semaphore.wait()
     });
   });
 
-  group(
-    'HTTPVerb.delete',
-    () {
-      test('DELETE 1', () {
-        const expectedCode = r'''import Foundation
+  group('HTTPVerb.delete', () {
+    test('DELETE 1', () {
+      const expectedCode = r'''import Foundation
 
 var urlComponents = URLComponents(string: "https://reqres.in/api/users/2")!
 var queryItems = [URLQueryItem]()
@@ -1583,8 +1578,8 @@ semaphore.wait()
       );
     });
 
-      test('DELETE 2', () {
-        const expectedCode = r'''import Foundation
+    test('DELETE 2', () {
+      const expectedCode = r'''import Foundation
 
 let postData = """
 {

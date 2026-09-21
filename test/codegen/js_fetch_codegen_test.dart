@@ -68,9 +68,9 @@ fetch(url, options)
 
     test('GET 3', () {
       const expectedCode =
-          r"""const url = new URL('https://api.apidash.dev/country/data'); 
-url.searchParams.append('code', 'IND');
-url.searchParams.append('code', 'US');
+          r"""const url = new URL('https://api.apidash.dev/country/filtercodes'); 
+url.searchParams.append('country', 'United States');
+url.searchParams.append('country', 'India');
 const options = {
   method: 'GET'
 };
@@ -444,7 +444,8 @@ fetch(url, options)
 
   group('POST Request', () {
     test('POST 1', () {
-      const expectedCode = r"""const url = new URL('https://api.apidash.dev/case/lower'); 
+      const expectedCode =
+          r"""const url = new URL('https://api.apidash.dev/case/lower'); 
 const options = {
   method: 'POST',
   headers: {
@@ -476,7 +477,8 @@ fetch(url, options)
     });
 
     test('POST 2', () {
-      const expectedCode = r"""const url = new URL('https://api.apidash.dev/case/lower'); 
+      const expectedCode =
+          r"""const url = new URL('https://api.apidash.dev/case/lower'); 
 const options = {
   method: 'POST',
   headers: {
@@ -508,7 +510,8 @@ fetch(url, options)
     });
 
     test('POST 3', () {
-      const expectedCode = r"""const url = new URL('https://api.apidash.dev/case/lower'); 
+      const expectedCode =
+          r"""const url = new URL('https://api.apidash.dev/case/lower'); 
 const options = {
   method: 'POST',
   headers: {
@@ -759,7 +762,8 @@ fetch(url, options)
 
   group('PUT Request', () {
     test('PUT 1', () {
-      const expectedCode = r"""const url = new URL('https://reqres.in/api/users/2'); 
+      const expectedCode =
+          r"""const url = new URL('https://reqres.in/api/users/2'); 
 const options = {
   method: 'PUT',
   headers: {
@@ -794,7 +798,8 @@ fetch(url, options)
 
   group('PATCH Request', () {
     test('PATCH 1', () {
-      const expectedCode = r"""const url = new URL('https://reqres.in/api/users/2'); 
+      const expectedCode =
+          r"""const url = new URL('https://reqres.in/api/users/2'); 
 const options = {
   method: 'PATCH',
   headers: {
@@ -829,7 +834,8 @@ fetch(url, options)
 
   group('DELETE Request', () {
     test('DELETE 1', () {
-      const expectedCode = r"""const url = new URL('https://reqres.in/api/users/2'); 
+      const expectedCode =
+          r"""const url = new URL('https://reqres.in/api/users/2'); 
 const options = {
   method: 'DELETE',
   headers: {
@@ -860,7 +866,8 @@ fetch(url, options)
     });
 
     test('DELETE 2', () {
-      const expectedCode = r"""const url = new URL('https://reqres.in/api/users/2'); 
+      const expectedCode =
+          r"""const url = new URL('https://reqres.in/api/users/2'); 
 const options = {
   method: 'DELETE',
   headers: {

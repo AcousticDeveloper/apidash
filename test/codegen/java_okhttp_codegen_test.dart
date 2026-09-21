@@ -100,10 +100,10 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         OkHttpClient client = new OkHttpClient().newBuilder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://api.apidash.dev/country/data").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://api.apidash.dev/country/filtercodes").newBuilder();
          
-        urlBuilder.addQueryParameter("code", "IND"); 
-        urlBuilder.addQueryParameter("code", "US");  
+        urlBuilder.addQueryParameter("country", "United States"); 
+        urlBuilder.addQueryParameter("country", "India");  
         HttpUrl url = urlBuilder.build();      
         
         Request request = new Request.Builder()

@@ -99,11 +99,11 @@ import (
 
 func main() {
   client := &http.Client{}
-  url, _ := url.Parse("https://api.apidash.dev/country/data")
+  url, _ := url.Parse("https://api.apidash.dev/country/filtercodes")
 query := url.Query()
 
-query.Add("code", "IND")
-query.Add("code", "US")
+query.Add("country", "United States")
+query.Add("country", "India")
 
 url.RawQuery = query.Encode()
   req, _ := http.NewRequest("GET", url.String(), nil)

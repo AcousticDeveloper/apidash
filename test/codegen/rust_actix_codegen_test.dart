@@ -71,12 +71,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     test('GET 3', () {
       const expectedCode = r"""#[actix_rt::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let url = "https://api.apidash.dev/country/data";
+    let url = "https://api.apidash.dev/country/filtercodes";
     let client = awc::Client::default();
     let mut request = client.get(url);    
     let query_params = [
-        ("code", "IND"),
-        ("code", "US"),
+        ("country", "United States"),
+        ("country", "India"),
     ];
     request = request.query(&query_params).unwrap();
     let mut response = request.send()

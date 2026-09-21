@@ -83,10 +83,10 @@ echo $response . "\n";
     test('GET 3', () {
       const expectedCode = r'''<?php
 
-$uri = 'https://api.apidash.dev/country/data';
+$uri = 'https://api.apidash.dev/country/filtercodes';
 
 $queryParams = [
-'code' => ['IND', 'US']
+'country' => ['United States', 'India']
 ];
 $queryParts = [];
 foreach ($queryParams as $key => $values) {

@@ -67,10 +67,10 @@ puts "Response Body: #{response.body}"
       const expectedCode = r"""require "uri"
 require "net/http"
 
-url = URI("https://api.apidash.dev/country/data")
+url = URI("https://api.apidash.dev/country/filtercodes")
 
 params = {
- "code" => ["IND", "US"],
+ "country" => ["United States", "India"],
 }
 url.query = URI.encode_www_form(params)
 https = Net::HTTP.new(url.host, url.port)

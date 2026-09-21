@@ -35,7 +35,7 @@ void main() {
 
     test('GET 3', () {
       const expectedCode =
-          r"""curl --url 'https://api.apidash.dev/country/data?code=US&code=IND'""";
+          r"""curl --url 'https://api.apidash.dev/country/filtercodes?country=India&country=United+States'""";
       expect(
         codeGen.getCode(
           CodegenLanguage.curl,

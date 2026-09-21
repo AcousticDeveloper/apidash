@@ -56,10 +56,10 @@ fn main() -> Result<(), ureq::Error> {
 
     test('GET 3', () {
       const expectedCode = r"""fn main() -> Result<(), ureq::Error> {
-    let url = "https://api.apidash.dev/country/data";
+    let url = "https://api.apidash.dev/country/filtercodes";
     let response = ureq::get(url)
-        .query("code", "IND")
-        .query("code", "US")
+        .query("country", "United States")
+        .query("country", "India")
         .call()?;
 
     println!("Response Status: {}", response.status());
